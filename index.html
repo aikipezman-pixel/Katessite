@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Kate'sSite</title>
+    <script src="https://kit.fontawesome.com/6f04150875.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+        <section class="landing">
+            <header class="site-header">
+                <a href="index.html" class="site-logo" aria-label="Kate Wurtzel home">
+                    <img src="KAssets/kate-wurtzel-rune-logo.svg" alt="Kate Wurtzel">
+                </a>
+                  <button class="menu-toggle" onclick="openMenu()" aria-label="Open menu">
+                    ☰
+                  </button>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="#work">Work</a>
+                    <a href="#workshops">Workshops</a>
+                    <a href="#writing">Writing</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </header>
+          <div class="menu-overlay">
+
+            <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">
+               ✕
+            </button>
+            <nav class="menu-links">
+              <a href="#work" onclick="closeMenu()">Work</a>
+              <a href="#workshops" onclick="closeMenu()">Workshops</a>
+              <a href="#writing" onclick="closeMenu()">Writing</a>
+              <a href="#about" onclick="closeMenu()">About</a>
+              <a href="#contact" onclick="closeMenu()">Contact</a>
+            </nav>
+
+          </div>
+        <img src="KAssets/ErodedLandscape.png" alt="Eroded landscape" class="landing__bg">
+        <div class="landing__overlay"></div>
+        <div class="landing__content">
+            <h1>Work rooted in land, material, and lived experience.</h1>
+            <p>Art, writing, and hands-on learning informed by place, myth, and matter.</p>
+            <div class="cta">
+                <a href="#" class="btn__primary">View Artwork</a>
+                <a href="#" class="btn__secondary">Join a Workshop</a>
+            </div>
+        </div>
+    </section>
+
+   <section class="pathways" aria-label="Explore Kate Wurtzel's work">
+      <div class="pathways__inner">
+        <div class="pathways__grid">
+
+        <a href="#artwork" class="path-card">
+        <img src="KAssets/deer.jpg" alt="Featured Work" class="path__img">
+        <div class="path__card--text">
+          <span class="path-card__symbol">ᛆ</span>
+        <h3>Artwork</h3>
+        <p>Original works and prints rooted in land, material, and mythic form.</p>
+        </div>
+      </a>
+
+      <a href="#workshops" class="path-card">
+        <img src="KAssets/IMG_1899.JPG" alt="Workshop" class="path__img">
+        <div class="path__card--text">
+          <span class="path-card__symbol">ᚹ</span>
+        <h3>Workshops</h3>
+        <p>Hands-on sessions for creative practice, reflection, and embodied learning.</p>
+        </div>
+      </a>
+
+      <a href="#writing" class="path-card">
+        <img src="KAssets/IMG_2921.JPG" alt="Workshop" class="path__img">
+        <div class="path__card--text">
+           <span class="path-card__symbol">ᚱ</span>
+        <h3>Writing</h3>
+        <p>Essays and academic work on ecology, empowerment, art, and thought.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="featured-work" id="artwork" aria-labelledby="featured-work-title">
+  <div class="section-inner">
+    <div class="section-heading">
+      <p class="eyebrow">Featured Works</p>
+    </div>
+
+    <div class="featured-work__grid">
+      <article class="work-card">
+        <img src="KAssets/gregandsteph.jpg" alt="Artwork title one">
+        <div class="work-card__meta">
+          <h3>Work Title One</h3>
+          <p>Mixed media, 2026</p>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <img src="KAssets/20240322_081403.jpg" alt="Artwork title two">
+        <div class="work-card__meta">
+          <h3>Work Title Two</h3>
+          <p>Natural pigment on paper, 2026</p>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <img src="KAssets/bull.jpg" alt="Artwork title three">
+        <div class="work-card__meta">
+          <h3>Work Title Three</h3>
+          <p>Textile and earth pigment, 2025</p>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <img src="KAssets/Stark.jpg" alt="Artwork title four">
+        <div class="work-card__meta">
+          <h3>Work Title Four</h3>
+          <p>Archival print, 2025</p>
+        </div>
+      </article>
+    </div>
+
+    <a href="#all-work" class="text-link">View all work</a>
+  </div>
+</section>
+<section class="workshop">
+  <div class="workshop__media">
+    <img src="KAssets/IMG_2522.JPG" alt="Workshop scene">
+  </div>
+  <div class="workshop__content">
+    <img src="KAssets/gradientbackdrop.png" alt="" class="workshop__bg">
+    <div class="workshop__content-inner">
+      <p class="eyebrow">Upcoming Workshop</p>
+      <h2>Earth, Clay, Fire</h2>
+      <p class="workshop__meta">May 16–18, 2025 | Moab, Utah</p>
+      <p>
+        A three-day immersion in handbuilding, elemental fire, and the stories held in clay.
+      </p>
+      <a href="#" class="btn__primary btn--dark">Reserve your spot</a>
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="about__media">
+    <img src="KAssets/snowbird.jpg" alt="Kate Wurtzel">
+  </div>
+
+  <div class="about__content">
+    <div class="about__inner">
+      <p class="eyebrow">About Kate</p>
+      <h2>Artist. Teacher. Inquirer.</h2>
+
+      <p>
+        My work is a dialogue with land, material, and the more-than-human world.
+        Through art, writing, and teaching, I explore how we belong, how we remember,
+        and how we live more intentionally on this earth.
+      </p>
+
+      <a href="#contact" class="text-link">Learn more about Kate</a>
+    </div>
+  </div>
+</section>
+<section class="recent-writing" id="writing" aria-labelledby="recent-writing-title">
+  <div class="recent-writing__inner">
+    <div class="recent-writing__heading">
+      <p class="eyebrow" id="recent-writing-title">Recent Writing</p>
+      <a href="#essays" class="text-link recent-writing__all">Read all essays</a>
+    </div>
+
+    <div class="writing-list">
+      <article class="writing-card">
+        <h3>Becoming with the Land</h3>
+        <p>On creativity, reciprocity, and the slow work of relationship.</p>
+        <time datetime="2025-04-14">April 14, 2025</time>
+      </article>
+
+      <article class="writing-card">
+        <h3>Rhizomes &amp; Rivers</h3>
+        <p>Notes on Deleuze, ecology, and becoming.</p>
+        <time datetime="2025-03-02">March 2, 2025</time>
+      </article>
+
+      <article class="writing-card">
+        <h3>The Long View</h3>
+        <p>Time, erosion, and the stories written in stone.</p>
+        <time datetime="2025-02-10">February 10, 2025</time>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="newsletter">
+  <div class="newsletter__overlay"></div>
+
+  <div class="newsletter__inner">
+    <h2>Stay connected</h2>
+    <p>Occasional updates on new work, writing, and workshops.</p>
+
+    <form class="newsletter__form">
+      <input type="email" placeholder="Email address">
+      <button type="submit">Join</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="site-footer__inner">
+    <div class="footer-mark" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-col">
+        <h3>Work</h3>
+        <a href="#artwork">All Work</a>
+        <a href="#">Paintings</a>
+        <a href="#">Sculpture</a>
+        <a href="#">Prints</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Workshops</h3>
+        <a href="#workshops">Upcoming</a>
+        <a href="#">Retreats</a>
+        <a href="#">Private Workshops</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Writing</h3>
+        <a href="#writing">Essays</a>
+        <a href="#">Publications</a>
+        <a href="#">Lectures</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>About</h3>
+        <a href="#about">Bio</a>
+        <a href="#">Statement</a>
+        <a href="#">CV</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <a href="mailto:hello@example.com">Get in Touch</a>
+        <a href="#">Studio Visits</a>
+        <a href="#">FAQ</a>
+      </div>
+    </nav>
+
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="mailto:hello@example.com" aria-label="Email">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+    </div>
+
+    <p class="footer-credit">© 2026 Kate Wurtzel</p>
+  </div>
+</footer>
