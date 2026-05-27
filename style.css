@@ -575,7 +575,7 @@ body.menu--open::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("KAssets/paper-texture.png"),
+  background: url("assets/paper-texture.png"),
   radial-gradient(
       circle at 80% 30%,
       rgba(255,255,255,0.25),
@@ -593,7 +593,7 @@ body.menu--open::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("KAssets/floral-overlay.png");
+  background-image: url("assets/floral-overlay.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 55%;
@@ -697,7 +697,7 @@ body.menu--open::before {
   position: absolute;
   inset: 0;
 
-  background-image: url("KAssets/floral-overlay.png");
+  background-image: url("assets/floral-overlay.png");
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 55%;
@@ -828,7 +828,7 @@ body.menu--open::before {
       rgba(235, 227, 219, 0.18),
       rgba(235, 227, 219, 0.18)
     ),
-    url("KAssets/stone-texture-dark.png");
+    url("assets/stone-texture-dark.png");
 
   background-size: cover;
   background-position: center;

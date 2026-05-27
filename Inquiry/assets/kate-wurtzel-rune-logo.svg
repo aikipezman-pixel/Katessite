@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kate Wurtzel Rune-Inspired Logo</title>
+  <desc id="desc">Minimal angular wordmark reading Kate Wurtzel with a small centered sigil beneath.</desc>
+  <defs>
+    <style>
+      .stroke {
+        fill: none;
+        stroke: #f1ede9;
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .thin {
+        fill: none;
+        stroke: #f1ede9;
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .dot { fill: #f1ede9; }
+    </style>
+  </defs>
+
+  <!-- KATE -->
+  <g transform="translate(160 380)">
+    <!-- K -->
+    <path class="stroke" d="M0 0 L0 120"/>
+    <path class="stroke" d="M0 62 L68 0"/>
+    <path class="stroke" d="M22 62 L78 120"/>
+
+    <!-- A -->
+    <path class="stroke" d="M128 120 L175 0 L224 120"/>
+    <circle class="dot" cx="176" cy="78" r="5"/>
+
+    <!-- T -->
+    <path class="stroke" d="M275 0 L346 0"/>
+    <path class="stroke" d="M311 0 L311 120"/>
+
+    <!-- E as three bars -->
+    <path class="stroke" d="M410 0 L465 0"/>
+    <path class="stroke" d="M410 59 L465 59"/>
+    <path class="stroke" d="M410 120 L465 120"/>
+  </g>
+
+  <!-- WURTZEL -->
+  <g transform="translate(660 380)">
+    <!-- W -->
+    <path class="stroke" d="M0 0 L42 120 L80 42 L118 120 L160 0"/>
+    <path class="stroke" d="M59 0 L80 42 L101 0"/>
+    <circle class="dot" cx="80" cy="54" r="4.5"/>
+
+    <!-- U -->
+    <path class="stroke" d="M212 0 L212 80 Q212 120 258 120 Q304 120 304 80 L304 0"/>
+
+    <!-- R -->
+    <path class="stroke" d="M365 120 L365 0 L424 31 L365 62"/>
+    <path class="stroke" d="M386 63 L443 120"/>
+
+    <!-- T -->
+    <path class="stroke" d="M492 0 L565 0"/>
+    <path class="stroke" d="M529 0 L529 120"/>
+
+    <!-- Z -->
+    <path class="stroke" d="M620 0 L695 0 L621 120 L698 120"/>
+
+    <!-- E rune-like sigma -->
+    <path class="stroke" d="M760 0 L835 0 L785 59 L835 120 L760 120"/>
+
+    <!-- L -->
+    <path class="stroke" d="M895 0 L895 120 L948 120"/>
+    <circle class="dot" cx="965" cy="117" r="4"/>
+  </g>
+
+  <!-- Center sigil -->
+  <g transform="translate(800 590)">
+    <path class="thin" d="M-150 0 L-55 0"/>
+    <path class="thin" d="M55 0 L150 0"/>
+    <path class="thin" d="M0 -48 L0 48"/>
+    <path class="thin" d="M-42 -42 L42 42"/>
+    <path class="thin" d="M42 -42 L-42 42"/>
+    <path class="thin" d="M-26 0 L0 -22 L26 0"/>
+    <circle class="dot" cx="0" cy="73" r="4"/>
+  </g>
+</svg>

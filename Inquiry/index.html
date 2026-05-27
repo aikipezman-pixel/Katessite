@@ -1,0 +1,89 @@
+<!-- inquiry.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inquiry | Kate Wurtzel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo" aria-label="Kate Wurtzel home">
+      <img src="assets/kate-wurtzel-rune-logo.svg" alt="Kate Wurtzel logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="//">Home</a>
+      <a href="/Artwork/">Artwork</a>
+      <a href="/Writing/">Writing</a>
+      <a href="/Workshops/">Workshops</a>
+      <a href="/About/">About</a>
+      <a href="/Inquiry/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="inquiry-hero">
+      <div class="inquiry-grid">
+        <div class="inquiry-image">
+          <img src="assets/KatePic.png" alt="Kate Wurtzel with artwork" />
+        </div>
+
+        <div class="inquiry-content">
+          <h1>Let’s Connect</h1>
+
+          <p class="inquiry-intro">
+            I am happy to discuss co-creating, workshop opportunities, artwork sales,
+            and ideas that may be forming between theory, practice, and lived experience.
+          </p>
+
+<form
+  class="inquiry-form"
+  action="https://formspree.io/f/mdajdzng"
+  method="POST"
+
+>
+
+  <input type="hidden" name="form-name" value="contact">
+
+  <div class="form-row">
+    <label>
+      First Name
+      <input type="text" name="first-name" required>
+    </label>
+
+    <label>
+      Last Name
+      <input type="text" name="last-name" required>
+    </label>
+  </div>
+
+  <label>
+    Email
+    <input type="email" name="email" required>
+  </label>
+
+  <label>
+    Message
+    <textarea name="message" rows="7" required></textarea>
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Kate Wurtzel &nbsp; | &nbsp; All Rights Reserved</p>
+  </footer>
+</body>
+</html>

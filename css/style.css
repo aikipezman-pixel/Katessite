@@ -1,0 +1,1522 @@
+/* ============================================================
+   KATEWURTZEL.COM — SUBPAGE STYLESHEET
+   Covers: About, Artwork, Coming Soon, Inquiry, Workshops, Writing
+   
+   Structure:
+    1.  Variables
+    2.  Reset & Base
+    3.  Header & Nav
+    4.  Ornament Line
+    5.  Shared Hero base
+    6.  PAGE: About
+    7.  PAGE: Artwork
+    8.  PAGE: Coming Soon
+    9.  PAGE: Inquiry
+   10.  PAGE: Workshops
+   11.  PAGE: Writing
+   12.  Shared: Feature Boxes
+   13.  Shared: Closing Section
+   14.  Shared: Buttons & Text Links
+   15.  Shared: Footer
+   16.  Shared: Lightbox
+   17.  Media — 768px
+   18.  Media — 640px
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIABLES
+   ============================================================ */
+
+:root {
+  --black:       #0b0c09;
+  --charcoal:    #11130f;
+  --moss:        #171913;
+  --stone:       #242119;
+  --stone-light: #3a3427;
+  --bone:        #f1ede9;
+  --mist:        #d8cfc4;
+  --ash:         #a99d91;
+  --gold:        #c7a976;
+  --line:        rgba(199, 169, 118, 0.5);
+  --soft-line:   rgba(241, 237, 233, 0.16);
+}
+
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--bone);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   3. HEADER & NAV
+   ============================================================ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 7.5%;
+  background: var(--charcoal);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(241, 237, 233, 0.08);
+}
+
+/* About page uses a transparent header that overlays its hero */
+.site-header.header--overlay {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+.logo {
+  position: absolute;
+  left: 7.5%;
+  top: 50%;
+  transform: translateY(-55%);
+  display: block;
+  width: 260px;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.main-nav a {
+  color: var(--bone);
+  position: relative;
+  padding-bottom: 0.45rem;
+  transition: color 0.25s ease;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   4. ORNAMENT LINE
+   ============================================================ */
+
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 120px;
+  margin: 0 auto 1rem;
+  color: var(--gold);
+}
+
+/* Left-aligned variant used inside hero sections */
+.ornament-line.hero-line {
+  margin: 0 0 1.6rem;
+  width: 150px;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--gold);
+  opacity: 0.75;
+}
+
+.ornament-line span {
+  font-size: 1rem;
+}
+
+
+/* ============================================================
+   5. SHARED HERO BASE
+   All subpage heroes share layout; selectors below
+   add page-specific sizing, padding, and background.
+   ============================================================ */
+
+.about-hero,
+.artwork-hero,
+.writing-hero,
+.workshops-hero,
+.coming-hero {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+/* Shared large serif h1 for artwork / writing / workshops */
+.artwork-hero h1,
+.writing-hero h1,
+.workshops-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4.6rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  color: #f5f1eb;
+  margin-bottom: 1.4rem;
+}
+
+/* Shared italic gold tagline for artwork / writing / workshops */
+.artwork-hero .hero-intro,
+.writing-hero .hero-intro,
+.workshops-hero .hero-intro {
+  max-width: 520px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.28;
+  color: var(--gold);
+}
+
+/* Shared stone-texture hero background gradient */
+.artwork-hero,
+.writing-hero,
+.workshops-hero {
+  min-height: 62vh;
+  padding: 7rem 7.5% 4.8rem;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 9, 7, 0.74) 0%,
+      rgba(8, 9, 7, 0.56) 38%,
+      rgba(8, 9, 7, 0.28) 72%,
+      rgba(8, 9, 7, 0.12) 100%
+    ),
+    url("../assets/stone-texture-dark.png");
+  border-bottom: 1px solid rgba(241, 237, 233, 0.1);
+}
+
+
+/* ============================================================
+   6. PAGE: ABOUT
+   ============================================================ */
+
+.about-hero {
+  min-height: 62vh;
+  padding: 8rem 7.5% 5rem;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 9, 7, 0.72) 0%,
+      rgba(8, 9, 7, 0.52) 38%,
+      rgba(8, 9, 7, 0.28) 70%,
+      rgba(8, 9, 7, 0.12) 100%
+    ),
+    url("../assets/stone-texture-dark.png");
+}
+
+.about-hero .hero-inner {
+  max-width: 860px;
+}
+
+.about-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+  color: #f5f1eb;
+  margin-bottom: 2rem;
+}
+
+.about-hero .hero-intro {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 560px;
+  color: #f5f1eb;
+  margin-top: 1.5rem;
+}
+
+/* Story section */
+.story-section {
+  background: var(--charcoal);
+  padding: 4.8rem 7.5% 2.2rem;
+}
+
+.story-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.portrait-frame {
+  border: 1px solid var(--gold);
+  padding: 0.45rem;
+  background: rgba(199, 169, 118, 0.05);
+}
+
+.portrait-frame img {
+  width: 100%;
+  aspect-ratio: 1 / 0.96;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.story-copy {
+  color: var(--mist);
+}
+
+.story-copy p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 1.45rem;
+}
+
+.story-copy p:first-child::first-letter {
+  float: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5.4rem;
+  line-height: 0.72;
+  padding-right: 0.55rem;
+  color: var(--gold);
+}
+
+/* CV section */
+.cv-section {
+  background: var(--charcoal);
+  padding: 2.6rem 7.5% 1.8rem;
+}
+
+.cv-label {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+/* Pillars section */
+.pillars-section {
+  background: var(--charcoal);
+  padding: 1.8rem 7.5% 4.2rem;
+}
+
+.pillars-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pillar {
+  text-align: center;
+  padding: 1.8rem 2.5rem;
+  border-right: 1px solid rgba(199, 169, 118, 0.48);
+}
+
+.pillar:last-child {
+  border-right: none;
+}
+
+.pillar-icon {
+  margin: 0 auto 1rem;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 1.25rem;
+}
+
+.pillar h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: var(--bone);
+  margin-bottom: 0.55rem;
+}
+
+.small-diamond {
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-bottom: 0.95rem;
+}
+
+.pillar p {
+  color: var(--mist);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 1.45rem;
+}
+
+
+/* ============================================================
+   7. PAGE: ARTWORK
+   ============================================================ */
+
+/* Artist statement */
+.artist-statement-section {
+  background: var(--charcoal);
+  padding: 4.8rem 7.5% 2.2rem;
+}
+
+.statement-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.featured-frame {
+  border: 1px solid var(--gold);
+  padding: 0.45rem;
+  background: rgba(199, 169, 118, 0.05);
+}
+
+.featured-frame img {
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.statement-copy {
+  color: var(--mist);
+}
+
+.statement-copy p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 1.45rem;
+}
+
+.statement-copy p:first-child::first-letter {
+  float: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5.4rem;
+  line-height: 0.72;
+  padding-right: 0.55rem;
+  color: var(--gold);
+}
+
+/* Featured artwork box wrapper */
+.featured__artwork {
+  background: var(--charcoal);
+  padding: 2.6rem 7.5% 1.8rem;
+}
+
+.featured__artwork--image {
+  display: block;
+  width: 65%;
+  height: auto;
+  margin: 0 auto 1.6rem;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.featured__artwork--label,
+.featured__artwork--type {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+/* Collection section */
+.collection-section {
+  background: var(--charcoal);
+  padding: 2.6rem 7.5% 1.8rem;
+}
+
+.collection-label {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+/* Gallery grid — lives inside .collection-box on artwork page */
+.gallery-grid {
+  max-width: 1080px;
+  margin: 2rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  text-align: left;
+}
+
+.art-card {
+  background: transparent;
+}
+
+.art-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid rgba(199, 169, 118, 0.55);
+  filter: saturate(0.86) contrast(1.05);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.art-card a:hover img {
+  opacity: 0.82;
+  transform: translateY(-2px);
+}
+
+.artwork-lightbox-link {
+  display: block;
+  cursor: zoom-in;
+}
+
+.art-meta {
+  padding: 0.95rem 0 0;
+}
+
+.art-meta h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--bone);
+  margin-bottom: 0.2rem;
+}
+
+.art-meta p {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--gold);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+
+/* ============================================================
+   8. PAGE: COMING SOON
+   ============================================================ */
+
+.coming-hero {
+  min-height: calc(100vh - 72px);
+  padding: 8rem 7.5% 5rem;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 9, 7, 0.74) 0%,
+      rgba(8, 9, 7, 0.56) 42%,
+      rgba(8, 9, 7, 0.3) 72%,
+      rgba(8, 9, 7, 0.16) 100%
+    ),
+    url("../assets/stone-texture-dark.png");
+}
+
+.coming-hero .hero-inner {
+  max-width: 760px;
+}
+
+.eyebrow {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.72rem;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+}
+
+.coming-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4.5rem, 10vw, 8rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  color: #f5f1eb;
+  margin-bottom: 1.8rem;
+}
+
+.coming-hero .hero-intro {
+  max-width: 520px;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.65;
+  color: #f5f1eb;
+  margin-bottom: 2rem;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.home-link span {
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+
+/* ============================================================
+   9. PAGE: INQUIRY
+   ============================================================ */
+
+.inquiry-hero {
+  min-height: calc(100vh - 72px);
+  padding: 8.5rem 7.5% 5.5rem;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 9, 7, 0.84) 0%,
+      rgba(8, 9, 7, 0.72) 48%,
+      rgba(8, 9, 7, 0.6) 100%
+    ),
+    url("../assets/stone-texture-dark.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.inquiry-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.inquiry-image {
+  border: 1px solid rgba(199, 169, 118, 0.48);
+  background: rgba(199, 169, 118, 0.04);
+  padding: 0.85rem;
+}
+
+.inquiry-image img {
+  width: 100%;
+  height: min(650px, 72vh);
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.inquiry-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  color: var(--bone);
+  margin-bottom: 1.6rem;
+}
+
+.inquiry-intro {
+  max-width: 650px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--mist);
+  margin-bottom: 2.4rem;
+}
+
+.inquiry-form {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+
+.inquiry-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.inquiry-form input,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(241, 237, 233, 0.22);
+  background: rgba(241, 237, 233, 0.06);
+  color: var(--bone);
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.inquiry-form textarea {
+  resize: vertical;
+}
+
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(241, 237, 233, 0.09);
+}
+
+.inquiry-form button {
+  width: fit-content;
+  margin-top: 0.4rem;
+  padding: 1rem 2.4rem;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--black);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.inquiry-form button:hover {
+  background: transparent;
+  color: var(--bone);
+}
+
+
+/* ============================================================
+   10. PAGE: WORKSHOPS
+   ============================================================ */
+
+/* Intro section */
+.workshops-intro-section {
+  background: var(--charcoal);
+  padding: 4.8rem 7.5% 2.2rem;
+}
+
+.workshops-intro-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.workshops-feature-frame {
+  border: 1px solid var(--gold);
+  padding: 0.45rem;
+  background: rgba(199, 169, 118, 0.05);
+}
+
+.workshops-feature-frame img {
+  width: 100%;
+  aspect-ratio: 1.22 / 1;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.workshops-copy {
+  color: var(--mist);
+}
+
+.workshops-copy p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 1.45rem;
+}
+
+.workshops-copy p:first-child::first-letter {
+  float: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5.4rem;
+  line-height: 0.72;
+  padding-right: 0.55rem;
+  color: var(--gold);
+}
+
+/* Featured workshop box wrapper */
+.featured-workshop-section {
+  background: var(--charcoal);
+  padding: 2.6rem 7.5% 1.8rem;
+}
+
+.workshop-label,
+.workshop-type {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+/* Workshop cards grid */
+.workshop-section {
+  background: var(--charcoal);
+  padding: 1.8rem 7.5% 4.2rem;
+}
+
+.workshop-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.workshop-card {
+  border: 1px solid rgba(199, 169, 118, 0.48);
+  padding: 2rem 1.6rem;
+  background: rgba(199, 169, 118, 0.035);
+}
+
+.workshop-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--bone);
+  margin-bottom: 1rem;
+}
+
+.workshop-card p:not(.workshop-type) {
+  color: var(--mist);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ============================================================
+   11. PAGE: WRITING
+   ============================================================ */
+
+/* Intro section */
+.writing-intro-section {
+  background: var(--charcoal);
+  padding: 4.8rem 7.5% 2.2rem;
+}
+
+.writing-intro-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.writing-feature-frame {
+  border: 1px solid var(--gold);
+  padding: 0.45rem;
+  background: rgba(199, 169, 118, 0.05);
+}
+
+.writing-feature-frame img {
+  width: 100%;
+  aspect-ratio: 1.22 / 1;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06);
+}
+
+.writing-copy {
+  color: var(--mist);
+}
+
+.writing-copy p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 1.45rem;
+}
+
+.writing-copy p:first-child::first-letter {
+  float: left;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5.4rem;
+  line-height: 0.72;
+  padding-right: 0.55rem;
+  color: var(--gold);
+}
+
+/* Essay cards grid */
+.essay-section {
+  background: var(--charcoal);
+  padding: 1.8rem 7.5% 4.2rem;
+}
+
+.essay-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.essay-card {
+  border: 1px solid rgba(199, 169, 118, 0.48);
+  padding: 2rem 1.6rem;
+  background: rgba(199, 169, 118, 0.035);
+}
+
+.essay-type {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+
+.essay-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--bone);
+  margin-bottom: 0.85rem;
+}
+
+.essay-card p:not(.essay-type) {
+  color: var(--mist);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ============================================================
+   12. SHARED: FEATURE BOXES
+   Used on About (cv-box), Artwork (featured__artwork--box,
+   collection-box), and Workshops (featured-workshop-box).
+   ============================================================ */
+
+.cv-box,
+.featured__artwork--box,
+.collection-box,
+.featured-workshop-box {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.4rem 2rem 2.2rem;
+  text-align: center;
+  border: 1px solid rgba(199, 169, 118, 0.48);
+  background:
+    linear-gradient(rgba(28, 27, 22, 0.88), rgba(28, 27, 22, 0.92)),
+    url("../assets/stone-texture-dark.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 36px rgba(0, 0, 0, 0.48);
+}
+
+/* Decorative side rules */
+.cv-box::before,
+.cv-box::after,
+.featured__artwork--box::before,
+.featured__artwork--box::after,
+.collection-box::before,
+.collection-box::after,
+.featured-workshop-box::before,
+.featured-workshop-box::after {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  width: 1px;
+  background: rgba(199, 169, 118, 0.2);
+}
+
+.cv-box::before,
+.featured__artwork--box::before,
+.collection-box::before,
+.featured-workshop-box::before { left: 1rem; }
+
+.cv-box::after,
+.featured__artwork--box::after,
+.collection-box::after,
+.featured-workshop-box::after  { right: 1rem; }
+
+/* Shared h2 inside feature boxes */
+.cv-box h2,
+.featured__artwork--box h2,
+.collection-box h2,
+.featured-workshop-box h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--bone);
+  margin-bottom: 0.9rem;
+}
+
+/* Shared body copy inside feature boxes */
+.cv-box p:not(.cv-label),
+.featured__artwork--box p:not(.featured__artwork--label),
+.collection-box p:not(.collection-label),
+.featured-workshop-box p:not(.workshop-label) {
+  max-width: 620px;
+  margin: 0 auto 1.35rem;
+  color: var(--mist);
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   13. SHARED: CLOSING SECTION
+   ============================================================ */
+
+.closing-section {
+  background:
+    linear-gradient(rgba(36, 33, 25, 0.78), rgba(15, 15, 12, 0.9)),
+    url("../assets/ClosingBackground.png");
+  background-size: cover;
+  background-position: center;
+  padding: 3.7rem 7.5% 3.2rem;
+  text-align: center;
+  border-top: 1px solid rgba(241, 237, 233, 0.1);
+  color: var(--bone);
+}
+
+.closing-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--bone);
+  margin-bottom: 0.8rem;
+}
+
+.closing-section .ornament-line {
+  margin: 0 auto 1.6rem;
+  width: 135px;
+}
+
+.closing-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+
+/* ============================================================
+   14. SHARED: BUTTONS & TEXT LINKS
+   ============================================================ */
+
+.button-link,
+.cv-button,
+.collection-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 185px;
+  padding: 0.95rem 1.35rem;
+  border: 1px solid var(--bone);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: transparent;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.cv-button {
+  min-width: 250px;
+  gap: 0.8rem;
+  border-color: var(--bone);
+}
+
+.collection-button {
+  border-color: var(--gold);
+  color: var(--bone);
+}
+
+.button-link:hover,
+.cv-button:hover,
+.collection-button:hover {
+  background: var(--bone);
+  color: var(--black);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--bone);
+}
+
+.text-link span {
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+
+/* ============================================================
+   15. SHARED: FOOTER
+   ============================================================ */
+
+.site-footer {
+  padding: 1.4rem 7.5%;
+  background: var(--charcoal);
+  text-align: center;
+  color: var(--bone);
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(241, 237, 233, 0.08);
+}
+
+
+/* ============================================================
+   16. SHARED: LIGHTBOX
+   ============================================================ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(11, 12, 9, 0.92);
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border: 1px solid rgba(199, 169, 118, 0.6);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.75);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.6rem;
+  border: none;
+  background: transparent;
+  color: var(--bone);
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   17. RESPONSIVE — TABLET (max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  .site-header {
+    position: relative;
+    height: auto;
+    min-height: 96px;
+    padding: 1rem 6%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+
+  .logo {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 220px;
+    margin: 0 auto;
+  }
+
+  .main-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.2rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+  }
+
+  /* About hero */
+  .about-hero {
+    min-height: 54vh;
+    padding: 4.5rem 6%;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(3.8rem, 14vw, 5.8rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-hero .hero-intro {
+    font-size: 1.05rem;
+  }
+
+  /* Artwork / Writing / Workshops heroes */
+  .artwork-hero,
+  .writing-hero,
+  .workshops-hero {
+    min-height: 54vh;
+    padding: 4.5rem 6%;
+  }
+
+  .artwork-hero h1,
+  .writing-hero h1,
+  .workshops-hero h1 {
+    font-size: clamp(3.8rem, 14vw, 5.8rem);
+  }
+
+  .artwork-hero .hero-intro,
+  .writing-hero .hero-intro,
+  .workshops-hero .hero-intro {
+    font-size: 1.35rem;
+  }
+
+  /* Coming soon */
+  .coming-hero {
+    min-height: 72vh;
+    padding: 4.5rem 6%;
+  }
+
+  /* Two-column → single column */
+  .story-grid,
+  .statement-grid,
+  .writing-intro-grid,
+  .workshops-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .portrait-frame,
+  .featured-frame,
+  .writing-feature-frame,
+  .workshops-feature-frame {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Feature boxes */
+  .cv-box,
+  .featured__artwork--box,
+  .collection-box,
+  .featured-workshop-box {
+    padding: 2.25rem 1.5rem;
+  }
+
+  .cv-box::before,
+  .cv-box::after,
+  .featured__artwork--box::before,
+  .featured__artwork--box::after,
+  .collection-box::before,
+  .collection-box::after,
+  .featured-workshop-box::before,
+  .featured-workshop-box::after {
+    display: none;
+  }
+
+  /* Pillars */
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar {
+    border-right: none;
+    border-bottom: 1px solid rgba(199, 169, 118, 0.34);
+    padding: 2.25rem 1.25rem;
+  }
+
+  .pillar:last-child {
+    border-bottom: none;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  /* Workshop cards */
+  .workshop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Essay cards */
+  .essay-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Inquiry */
+  .inquiry-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .inquiry-image img {
+    height: auto;
+    max-height: 480px;
+  }
+
+  /* Closing */
+  .closing-section {
+    padding: 3.25rem 6%;
+  }
+
+  .closing-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .button-link,
+  .cv-button,
+  .collection-button {
+    width: 100%;
+    max-width: 315px;
+    min-width: 0;
+  }
+
+  /* Section padding */
+  .story-section,
+  .cv-section,
+  .pillars-section,
+  .artist-statement-section,
+  .featured__artwork,
+  .collection-section,
+  .writing-intro-section,
+  .essay-section,
+  .workshops-intro-section,
+  .featured-workshop-section,
+  .workshop-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .site-footer {
+    padding: 1.25rem 6%;
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ============================================================
+   18. RESPONSIVE — PHONE (max-width: 640px)
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+  /* Header */
+  .site-header {
+    min-height: auto;
+    padding: 0.9rem 5%;
+    gap: 0.75rem;
+  }
+
+  .logo { width: 190px; }
+
+  .main-nav {
+    gap: 0.65rem 0.95rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  /* Heroes */
+  .about-hero {
+    min-height: 50vh;
+    padding: 3.75rem 5%;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(3.2rem, 17vw, 4.8rem);
+  }
+
+  .artwork-hero,
+  .writing-hero,
+  .workshops-hero {
+    min-height: 50vh;
+    padding: 3.75rem 5%;
+  }
+
+  .artwork-hero h1,
+  .writing-hero h1,
+  .workshops-hero h1 {
+    font-size: clamp(3.2rem, 17vw, 4.8rem);
+  }
+
+  .coming-hero {
+    padding: 3.75rem 5%;
+  }
+
+  .coming-hero h1 {
+    font-size: clamp(3.6rem, 17vw, 5rem);
+  }
+
+  /* Section padding */
+  .story-section,
+  .cv-section,
+  .pillars-section,
+  .artist-statement-section,
+  .featured__artwork,
+  .collection-section,
+  .writing-intro-section,
+  .essay-section,
+  .workshops-intro-section,
+  .featured-workshop-section,
+  .workshop-section,
+  .closing-section,
+  .site-footer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /* Story / copy */
+  .story-grid  { gap: 2rem; }
+  .portrait-frame img { aspect-ratio: 4 / 5; }
+
+  .story-copy p,
+  .writing-copy p,
+  .workshops-copy p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .story-copy p:first-child::first-letter,
+  .writing-copy p:first-child::first-letter,
+  .workshops-copy p:first-child::first-letter {
+    font-size: 3.6rem;
+  }
+
+  /* Feature boxes */
+  .cv-box,
+  .featured__artwork--box,
+  .collection-box,
+  .featured-workshop-box {
+    padding: 2rem 1.1rem;
+  }
+
+  .cv-box h2,
+  .featured__artwork--box h2,
+  .collection-box h2,
+  .featured-workshop-box h2 {
+    font-size: 2rem;
+  }
+
+  /* Pillars */
+  .pillar          { padding: 2rem 0.75rem; }
+  .pillar h3       { font-size: 1.9rem; }
+  .pillar p        { font-size: 0.95rem; }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Essay / Workshop cards */
+  .essay-card,
+  .workshop-card   { padding: 1.8rem 1.25rem; }
+
+  .essay-card h3   { font-size: 1.55rem; }
+  .workshop-card h3 { font-size: 1.75rem; }
+
+  /* Inquiry */
+  .inquiry-hero    { padding: 3.75rem 5%; }
+  .form-row        { grid-template-columns: 1fr; }
+
+  .inquiry-content h1 { font-size: clamp(3.4rem, 16vw, 5rem); }
+  .inquiry-form button { width: 100%; }
+
+  /* Closing */
+  .closing-section h2 { font-size: 2rem; }
+
+  /* Buttons */
+  .cv-button {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    padding: 0.9rem 1rem;
+  }
+
+  .text-link,
+  .button-link,
+  .collection-button {
+    font-size: 0.65rem;
+    letter-spacing: 0.24em;
+  }
+
+  .site-footer {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
