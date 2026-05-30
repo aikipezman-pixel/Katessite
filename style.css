@@ -221,7 +221,7 @@ body.menu--open::before {
     flex-wrap: wrap;
 }
 
-.btn__secondary, .btn__primary {
+.btn__primary {
   display: inline-block;
   font-size: 12px;
   font-weight: 600;
@@ -230,6 +230,19 @@ body.menu--open::before {
   transition: all 300ms; 
   text-decoration: none;
   padding: 12px 20px;
+  border: 1px solid rgba(241, 237, 233, 0.5);
+  border-radius: 8px;
+}
+
+.btn__secondary {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #f1ede9;
+  transition: all 300ms; 
+  text-decoration: none;
+  padding: 12px 80px;
   border: 1px solid rgba(241, 237, 233, 0.5);
   border-radius: 8px;
 }
@@ -1290,9 +1303,12 @@ body.menu--open::before {
     font-size: clamp(40px, 13vw, 52px);
   }
 
-  .btn__primary,
-  .btn__secondary {
+  .btn__primary {
     padding: 10px 16px;
+    font-size: 11px;
+  }
+   .btn__secondary {
+    padding: 70px 16px;
     font-size: 11px;
   }
 
